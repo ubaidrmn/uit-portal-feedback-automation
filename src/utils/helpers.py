@@ -52,13 +52,31 @@ def solve_and_submit_feedback(driver: webdriver.Chrome):
     driver.execute_script(
         """
             const questions = document.querySelectorAll('div.ansMainDiv');
+            const responses = [
+            "Good!",
+            "Great job!",
+            "Well done!",
+            "Excellent work!",
+            "Keep it up!",
+            "Nice effort!",
+            "You're doing awesome!",
+            "Fantastic!",
+            "Outstanding!",
+            "Impressive!",
+            "Superb!",
+            "You're on the right track!",
+            "Nice progress!",
+            "That’s the way to go!",
+            "Perfect!",
+            "Awesome work!"
+        ];
             questions.forEach(question => {
-                let inputEl = question.querySelector('input');
+                let inputEl = question.querySelectorAll('input')[Math.floor(Math.random() * 4)];
                 let textEl = question.querySelector('textarea');
                 if (inputEl) {
                     inputEl.click();
                 } else if (textEl) {
-                    textEl.value = "Good!";
+                    textEl.value = responses[Math.floor(Math.random() * responses.length)];
                 }
             })
         """
