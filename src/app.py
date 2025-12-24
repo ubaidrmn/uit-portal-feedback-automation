@@ -83,10 +83,10 @@ if __name__ == "__main__":
         for row in feedback_table_rows[1:]:
             cols = row.find_elements(By.CSS_SELECTOR, "td")
 
-            if "not submitted" in cols[6].get_attribute("innerText").lower():
+            if "not submitted" in cols[7].get_attribute("innerText").lower():
                 all_feedbacks_already_submitted = False
                 print("[FEEDBACK_AUTOMATION: Found an unsubmitted feedback!]")
-                cols[7].click()
+                cols[8].click()
 
                 # Wait for feedback page to load
 
