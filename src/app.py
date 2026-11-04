@@ -66,6 +66,13 @@ if __name__ == "__main__":
         except Exception as err:
             pass
 
+    # If feedback form not found from the sidebar, check if the portal 
+    # has redirected to the feedback form page
+
+    time.sleep(2.5)
+    if "survey" in driver.current_url.lower():
+        feedback_form_not_available = False
+
     if feedback_form_not_available:
         raise FeedbackFormNotAvailableError("No feedback form found :(")
 
